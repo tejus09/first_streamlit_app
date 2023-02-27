@@ -1,33 +1,21 @@
 import streamlit as st
-from matplotlib import image
-import pandas as pd
-import plotly.express as px
-import os
 
-# absolute path to this file
-FILE_DIR = os.path.dirname(os.path.abspath(__file__))
-# absolute path to this file's root directory
-PARENT_DIR = os.path.join(FILE_DIR, os.pardir)
-# absolute path of directory_of_interest
-dir_of_interest = os.path.join(PARENT_DIR, "resources")
+st.title(':red[Innomatics] :blue[Data] :green[App]')
 
-IMAGE_PATH = os.path.join(dir_of_interest, "images", "tips.jpg")
-DATA_PATH = os.path.join(dir_of_interest, "data", "tips.csv")
+st.subheader('About Me:sunglasses:')
 
-st.title("Dashboard - Tips Data")
+st.text('I am Tejus Kavishwar.')
+st.text('I am a Data Science Intern at Innomatics Research Labs.')
+st.text('I am a pre-final year student pursuing a bachelors degree in Technology with a specialisation in Machine Learning & Artificial Intelligence.') 
+st.text('I have a keen interest in working within the Machine Learning domain. The programming language I have a strong hold on is Python.') 
+st.text('I am an initiative taker and demonstrate quick concept-grasping skills')
 
-img = image.imread(IMAGE_PATH)
-st.image(img)
+btn = st.button('Connect with me on LinkedIn')
+if btn == True:
+    st.write('https://www.linkedin.com/in/tejus09/')
+    st.balloons()
 
-df = pd.read_csv(DATA_PATH)
-st.dataframe(df)
-
-time = st.selectbox("Select the time:", df['time'].unique())
-
-col1, col2 = st.columns(2)
-
-fig_1 = px.histogram(df[df['time'] == time], x="total_bill")
-col1.plotly_chart(fig_1, use_container_width=True)
-
-fig_2 = px.box(df[df['time'] == time], y="tip")
-col2.plotly_chart(fig_2, use_container_width=True)
+btn1 = st.button('Link to GitHub')
+if btn1 == True:
+    st.write('https://github.com/tejus09')
+    st.snow()
